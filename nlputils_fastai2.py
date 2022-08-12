@@ -41,13 +41,14 @@ def get_wiki(path,lang):
 def split_wiki(path,lang):
     dest = path/'docs'
     name = f'{lang}wiki'
+    xml_fn = f"{lang}wiki-latest-pages-articles.xml"
     if dest.exists():
         print(f"{dest} already exists; not splitting")
         return dest
 
     dest.mkdir(exist_ok=True, parents=True)
     title_re = re.compile(rf'<doc id="\d+" url="https://{lang}.wikipedia.org/wiki\?curid=\d+" title="([^"]+)">')
-    lines = (path/name).open()
+    lines = (path/xml_fn).open()
     f=None
 
     for i,l in enumerate(lines):
