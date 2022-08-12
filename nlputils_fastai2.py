@@ -1,6 +1,7 @@
 # source: https://github.com/fastai/course-nlp/blob/master/nlputils.py
 
 from fastai.basics import *
+from fastdownload import download_url
 import re
 import pandas as pd
 
